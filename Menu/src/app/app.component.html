@@ -1,0 +1,48 @@
+
+<h1>Churpas Pizza Menu</h1>
+
+<!--Table-->
+<table>
+  <th>Category</th>
+  <th>Food Item</th>
+  <th [ngStyle]="{'color': 'green'}">Price</th>
+<tr *ngFor="let fm of fullMenu">
+  <td>{{ fm.category }}</td>
+  <td>{{ fm.item }}</td>
+  <td [ngStyle]="{'color': 'green'}">${{ fm.price }}</td>
+</tr>
+</table>
+
+<table>
+  <th>Category</th>
+  <th>Food Item</th>
+  <th [ngStyle]="{'color': 'green'}">Price</th>
+<tr *ngFor="let mc of getByCategory('Dinner')">
+  <td [ngStyle]="{'fontStyle': 'italic'}">{{ mc.category }}</td>
+  <td>{{ mc.item }}</td>
+  <td [ngStyle]="{'color': 'green'}">${{ mc.price }}</td>
+</tr>
+</table>
+
+
+
+
+<!--div-->
+<div *ngFor="let m of fullMenu">
+<h5>{{ m.category }}</h5>
+<!-- <h2>{{ m.category }} {{ m.item }} {{ m.price }}</h2> -->
+<h2>{{ m.item }}</h2>
+<p [ngStyle]="{'color': 'green'}">Price: ${{ m.price }}</p>
+</div>
+
+
+<div *ngFor="let m of getByCategory('Dinner')">
+<p>{{ m.category }}</p>
+<p>{{ m.item }}</p>
+<!--currency rounds to nearest 2nd decimal-->
+<p>{{ m.price | currency}}</p>
+</div>
+
+
+
+<!-- <p getByCategory(‘Pizza’)>getByCategory(‘Pizza’)</p>getByCategory(‘Pizza’) -->
